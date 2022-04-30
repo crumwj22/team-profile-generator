@@ -1,6 +1,16 @@
-{
-  "dependencies": {
+{ 
+  "name": "10-team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose" 
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
     "inquirer": "^8.2.3",
-    "jest": "^28.0.2"
+    "jest": "^24.9.0"
+  
   }
 }

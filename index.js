@@ -1,10 +1,10 @@
 // node modules
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
 const fs = require('fs');
 
 
 // team profiles
-const Manager = require(".lib/manager");
+const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/engineer");
 
@@ -63,14 +63,17 @@ inquirer
           console.log("Please enter the managers office number.");
           return false;
         }
-      },
-    },
+      }
+    }
   ])
+  
   .then(managerInput) => {
       // how to add managers input
-
+    const { name, id, email, officeNumber } = managerInput;
+    const manager = new manager (name, id, email, officeNumber);
       //===============================
-
+  })
+};
       // adding employee, engineer or intern
 
       inquirer
@@ -155,15 +158,13 @@ inquirer
               default: false
           }
       ])
-      .then(employeeInput) => {
+      .then(employeeInput => {
     
     fs.writeFile("./index.html", htmlPageContent, (err) =>
       err ? console.log(err) : console.log("Successfully created a Team Profile!")
-  );
-  }); 
-
-  return result;
-};
+        
+      ); 
+    });
 
 
 
