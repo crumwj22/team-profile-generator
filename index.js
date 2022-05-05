@@ -37,7 +37,8 @@ const createTeam = () => {
         case "Intern":
           addIntern();
           break;
-        case "You are done addng team members!":
+        case "No more team members are needed.":
+          renderFile(teamArray);
           break;
       }
     });
@@ -255,7 +256,8 @@ const addIntern = () => {
 
 // write to index.html
 const renderFile = () => {
-  fs.writeFile("./dist/index.html", renderFile(teamArray), (err) => {
+  fs.writeFile("./dist/index.html", renderHTML(teamArray), (err) => {
+    console.log("creating file");
     err
       ? console.log(err)
       : console.log("Successfully created Intern profile!");

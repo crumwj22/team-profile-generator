@@ -1,6 +1,5 @@
-renderHTML = (teamArray) => {
-  const renderManagerHTML = function (manager) {
-    return `
+const renderManagerHTML = function (manager) {
+  return `
     <div class="container">
         <div class="row ">
             <div class="col-12 d-flex justify-content-center" style="max-width: 1000px; margin: 3em auto; flex-wrap: wrap;">
@@ -11,64 +10,74 @@ renderHTML = (teamArray) => {
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">${manager.getID()}</li>
-                            <li class="list-group-item">${manager.getEmail()}</li>
-                            <li class="list-group-item">${manager.getOfficeNumber()}</li>
+                            <li class="list-group-item">ID: ${manager.getId()}</li>
+                            <li class="list-group-item">Email:
+                                <a href= "mailto:${manager.getEmail()}">${manager.getEmail()}</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href= "${manager.getOfficeNumber()}">Office Number: ${manager.getOfficeNumber()}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>`;
-  };
+};
 
-  const renderEngineerHTML = function (engineer) {
-    return `
+const renderEngineerHTML = function (engineer) {
+  return `
     <div class="card" style="margin: 20px;">
                     <div class="card-header">
-                        <h2 class="card-title">Name</h2>
+                        <h2 class="card-title">${engineer.getName()}</h2>
                         <h3 class="card-title">Engineer</h3>                        
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">ID: </li>
-                            <li class="list-group-item">Email: </li>
-                            <li class="list-group-item">Office Number: </li>
+                            <li class="list-group-item">ID: ${engineer.getId()}</li>
+                            <li class="list-group-item">Email:
+                                <a href= "mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+                                </li>
+                            <li class="list-group-item">GitHub Link:
+                                <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a>
+                            </li>
                         </ul>
                     </div>
                 </div>`;
-  };
+};
 
-  const renderInternHTML = function (intern) {
-    return `
+const renderInternHTML = function (intern) {
+  return `
     <div class="card" style="margin: 20px;">
     <div class="card-header">
-        <h2 class="card-title">Name</h2>
+        <h2 class="card-title">${intern.getName()}</h2>
         <h3 class="card-title">Intern</h3>                        
     </div>
     <div class="card-body">
         <ul class="list-group">
-            <li class="list-group-item">ID: </li>
-            <li class="list-group-item">Email: </li>
-            <li class="list-group-item">Office Number: </li>
+            <li class="list-group-item">ID: ${intern.getId()}</li>
+            <li class="list-group-item">Email:
+                <a href= "mailto:${intern.getEmail()}">${intern.getEmail()}</a>
+            </li>
+            <li class="list-group-item">School: ${intern.getSchool()}</li>
         </ul>
     </div>
 </div>`;
-  };
+};
 
-  const renderFile = function (teamArray) {
-    // for (create for loop for all of the cards, then create new variable and assign all of the cards into the new variable. Then put that variable on line 83)
-    let callCards = ``;
+const renderHTML = function (teamArray) {
+  // for (create for loop for all of the cards, then create new variable and assign all of the cards into the new variable. Then put that variable on line 83)
+  let callCards = ``;
 
-    for (let i = 0; i < teamArray.length; i++) {
-      if (teamArray[i].getRole() == "manager") {
-        callCards += renderManagerHTML(teamArray[i]);
-      }
-      if (teamArray[i].getRole() == "engineer") {
-        callCards += renderEngineerHTML(teamArray[i]);
-      }
-      if (teamArray[i].getRole() == "intern") {
-        callCards += renderInternHTML(teamArray[i]);
-      }
+  for (let i = 0; i < teamArray.length; i++) {
+    if (teamArray[i].getRole() == "manager") {
+      callCards += renderManagerHTML(teamArray[i]);
     }
-    return `
+    if (teamArray[i].getRole() == "engineer") {
+      callCards += renderEngineerHTML(teamArray[i]);
+    }
+    if (teamArray[i].getRole() == "intern") {
+      callCards += renderInternHTML(teamArray[i]);
+    }
+  }
+  return `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,7 +109,6 @@ renderHTML = (teamArray) => {
 
 </body>
 </html>`;
-  };
 };
 
 module.exports = renderHTML;
