@@ -37,7 +37,8 @@ const createTeam = () => {
         case "Intern":
           addIntern();
           break;
-        case "No more team members are needed.":
+        // case "No more team members are needed.":
+        default:
           renderFile(teamArray);
           break;
       }
