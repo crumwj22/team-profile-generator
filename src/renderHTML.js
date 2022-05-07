@@ -14,8 +14,8 @@ const renderManagerHTML = function (manager) {
                             <li class="list-group-item">Email:
                                 <a href= "mailto:${manager.getEmail()}">${manager.getEmail()}</a>
                             </li>
-                            <li class="list-group-item">
-                                <a href= "${manager.getOfficeNumber()}">Office Number: ${manager.getOfficeNumber()}</a>
+                            <li class="list-group-item">Office Number:
+                                <a href= "${manager.getOfficeNumber()}"> ${manager.getOfficeNumber()}</a>
                             </li>
                         </ul>
                     </div>
@@ -33,9 +33,9 @@ const renderEngineerHTML = function (engineer) {
                         <ul class="list-group">
                             <li class="list-group-item">ID: ${engineer.getId()}</li>
                             <li class="list-group-item">Email:
-                                <a href= "mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
+                                <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a>
                                 </li>
-                            <li class="list-group-item">GitHub Link:
+                            <li class="list-group-item">GitHub:
                                 <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a>
                             </li>
                         </ul>
